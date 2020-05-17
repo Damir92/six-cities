@@ -1,6 +1,15 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-const MainScreen = () => {
+const getRandomElement = (array) => {
+  return array[Math.floor(Math.random() * array.length)];
+};
+
+const MainScreen = (props) => {
+  const {
+    titles,
+    onTitleClick,
+  } = props;
 
   return <React.Fragment>
     <div style={{display: `none`}}>
@@ -92,6 +101,7 @@ const MainScreen = () => {
               </select>
             </form>
             <div className="cities__places-list places__list tabs__content">
+
               <article className="cities__place-card place-card">
                 <div className="place-card__mark">
                   <span>Premium</span>
@@ -121,7 +131,7 @@ const MainScreen = () => {
                     </div>
                   </div>
                   <h2 className="place-card__name">
-                    <a href="#">Beautiful &amp; luxurious apartment at great location</a>
+                    <a href="#" onClick={onTitleClick}>{getRandomElement(titles)}</a>
                   </h2>
                   <p className="place-card__type">Apartment</p>
                 </div>
@@ -153,7 +163,7 @@ const MainScreen = () => {
                     </div>
                   </div>
                   <h2 className="place-card__name">
-                    <a href="#">Wood and stone place</a>
+                    <a href="#" onClick={onTitleClick}>{getRandomElement(titles)}</a>
                   </h2>
                   <p className="place-card__type">Private room</p>
                 </div>
@@ -185,7 +195,7 @@ const MainScreen = () => {
                     </div>
                   </div>
                   <h2 className="place-card__name">
-                    <a href="#">Canal View Prinsengracht</a>
+                    <a href="#" onClick={onTitleClick}>{getRandomElement(titles)}</a>
                   </h2>
                   <p className="place-card__type">Apartment</p>
                 </div>
@@ -220,7 +230,7 @@ const MainScreen = () => {
                     </div>
                   </div>
                   <h2 className="place-card__name">
-                    <a href="#">Nice, cozy, warm big bed apartment</a>
+                    <a href="#" onClick={onTitleClick}>{getRandomElement(titles)}</a>
                   </h2>
                   <p className="place-card__type">Apartment</p>
                 </div>
@@ -252,7 +262,7 @@ const MainScreen = () => {
                     </div>
                   </div>
                   <h2 className="place-card__name">
-                    <a href="#">Wood and stone place</a>
+                    <a href="#" onClick={onTitleClick}>{getRandomElement(titles)}</a>
                   </h2>
                   <p className="place-card__type">Private room</p>
                 </div>
@@ -267,6 +277,11 @@ const MainScreen = () => {
 
     </main>
   </ React.Fragment>;
+};
+
+MainScreen.propTypes = {
+  onTitleClick: PropTypes.func.isRequired,
+  titles: PropTypes.array.isRequired,
 };
 
 export default MainScreen;

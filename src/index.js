@@ -1,18 +1,19 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-import App from "./components/app/app.jsx";
+import App from './components/app/app.jsx';
 
-const titles = [
-  `Beautiful &amp; luxurious apartment at great location`,
-  `Wood and stone place`,
-  `Canal View Prinsengracht`,
-  `Nice, cozy, warm big bed apartment`
-];
+import offers from './mocks/offers';
+
+const clickHandler = (evt) => {
+  evt.preventDefault();
+  console.log(`Click`); // eslint-disable-line no-console
+};
 
 ReactDOM.render(
     <App
-      titles={titles}
+      offers={ offers }
+      onTitleClick={ clickHandler }
     />,
     document.querySelector(`#root`)
 );

@@ -1,30 +1,32 @@
-import React from "react";
-import renderer from "react-test-renderer";
-import App from "./app.jsx";
+import React from 'react';
+import renderer from 'react-test-renderer';
+import OfferList from './offer-list';
 
 const offers = [
   {
     image: `img`,
-    inBookmark: false,
+    inBookmark: true,
     isPremium: false,
     price: 132,
     rating: 70,
-    title: `Hotel`,
+    title: `Flat`,
     type: `Apartment`,
   }, {
     image: `img`,
     inBookmark: false,
     isPremium: true,
-    price: 180,
+    price: 200,
     rating: 100,
-    title: `Room`,
+    title: `House`,
     type: `Apartment`,
-  }
+  },
 ];
 
-it(`Render App`, () => {
+it(`List correctly rendered`, () => {
   const tree = renderer
-    .create(<App
+    .create(<OfferList
+      city={ `Moscow` }
+      count={ 800 }
       offers={ offers }
       onTitleClick={ jest.fn() }
     />)

@@ -3,19 +3,21 @@ import PropTypes from "prop-types";
 
 import MainScreen from "../main-screen/main-screen.jsx";
 
-const titleHandler = () => {};
-
 const App = (props) => {
-  const {titles} = props;
+  const {
+    offers,
+    onTitleClick,
+  } = props;
 
   return <MainScreen
-    titles={titles}
-    onTitleClick={titleHandler}
+    offers={ offers }
+    onTitleClick={ onTitleClick }
   />;
 };
 
 App.propTypes = {
-  titles: PropTypes.array
+  offers: PropTypes.array.isRequired,
+  onTitleClick: PropTypes.func.isRequired,
 };
 
 export default App;

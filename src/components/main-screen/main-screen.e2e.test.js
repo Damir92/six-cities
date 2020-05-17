@@ -3,6 +3,26 @@ import Enzyme, {shallow} from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import MainScreen from "./main-screen";
 
+const offers = [
+  {
+    image: `img`,
+    inBookmark: false,
+    isPremium: false,
+    price: 132,
+    rating: 70,
+    title: `Hotel`,
+    type: `Apartment`,
+  }, {
+    image: `img`,
+    inBookmark: false,
+    isPremium: true,
+    price: 180,
+    rating: 100,
+    title: `Room`,
+    type: `Apartment`,
+  }
+];
+
 Enzyme.configure({
   adapter: new Adapter(),
 });
@@ -12,7 +32,7 @@ it(`Should title be pressed`, () => {
 
   const mainScreen = shallow(
       <MainScreen
-        titles={[`title`, `title`]}
+        offers={ offers }
         onTitleClick={onTitleClick}
       />
   );
